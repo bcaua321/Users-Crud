@@ -1,0 +1,42 @@
+@model IQueryable<CriandoProjeto.Models.Usuario>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/lib/bootstrap5/dist/css/bootstrap.css">
+    <title>Usuarios</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-primary">Usuários</h1>
+        <hr>
+        <a href="/Home/Cadastrar" class="btn btn-primary">Adicionar Usuário</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Nome</td>
+                        <td>@item.Email</td>
+                        <td>
+                            <a class="btn btn-secondary" asp-controller="Home" asp-action="Cadastrar" asp-route-id="@item.Id">Alterar</a>
+                            <a class="btn btn-danger" asp-controller="Home" asp-action="Excluir" asp-route-id="@item.Id">Excluir</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+@model CriandoProjeto.Models.Usuario
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/lib/bootstrap5/dist/css/bootstrap.css">
+    <title>Excluir</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-primary">Excluir usuário</h1>
+        <h4>Deseja excluir o usuário? @Model.Nome</h4>
+        <hr>
+        <form method="POST">
+            <a href="/Home/Usuarios"class="btn btn-primary">Não</a>
+            <button type="submit" class="btn btn-danger">Sim</a>
+        </form>
+    </div>
+</body>
+</html>
