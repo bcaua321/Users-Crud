@@ -44,13 +44,15 @@ namespace CriandoProjeto.Models
             }
         }
 
-        public static void Excluir(int id)
+        public static bool Excluir(int id)
         {
             var conta = Usuario.listagem.Find(x => x.Id == id);
             if(conta != null)
             {
-                Usuario.listagem.Remove(conta);
+               return Usuario.listagem.Remove(conta);
             }
+
+            return false;
         } 
     }
 }

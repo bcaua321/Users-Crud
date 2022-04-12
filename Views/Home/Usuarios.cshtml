@@ -1,12 +1,31 @@
 @{
-    Layout = "_Layout";
-    ViewBag.Subtitulo = "Usuários";
+   ViewBag.Subtitulo = "Usuários";
 }
 
 
 <h1 class="text-primary">Usuários</h1>
 <hr>
     <a href="/Home/Cadastrar" class="btn btn-primary">Adicionar Usuário</a>
+    
+    @if(TempData.ContainsKey("Excluiu"))
+    {
+        var excluiu = (bool)TempData["Excluiu"];
+        if(excluiu)
+        {
+            <div class="alert alert-success mt-3 alert-dismissible fade show" role="alert">
+                Usuário excluido com sucesso.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+        }
+        else 
+        {
+            <div class="alert alert-warning mt-3 alert-dismissible fade show" role="alert">
+                Não foi possível excluir o usuário
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+    }
     <table class="table">
         <thead>
             <tr>
@@ -29,3 +48,7 @@
             }
         </tbody>
     </table>
+
+@section Scripts {
+    <script src="/lib/bootstrap5/dist/js/bootstrap.js"></script>
+}
