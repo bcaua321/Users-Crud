@@ -12,18 +12,11 @@
         var excluiu = (bool)TempData["Excluiu"];
         if(excluiu)
         {
-            <div class="alert alert-success mt-3 alert-dismissible fade show" role="alert">
-                Usuário excluido com sucesso.
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-
+            <partial name="_MensagemInfo" model="@("Usuário excluido com sucesso")"></partial>
         }
         else 
         {
-            <div class="alert alert-warning mt-3 alert-dismissible fade show" role="alert">
-                Não foi possível excluir o usuário
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
+            <partial name="_MensagemErro" model="@("Erro ao excluir Usuário")"></partial>
         }
     }
     <table class="table">
